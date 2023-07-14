@@ -4,27 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace multiple_tenant_solution.Entities
 {
     /// <summary>
-    /// 使用者
+    /// 物料
     /// </summary>
-    [Table("users")]
-    public class Users : BaseEntity
+    [Table("materials")]
+    public class Materials : BaseEntity
     {
         /// <summary>
-        /// 帳號
+        /// 料號
         /// </summary>
         [Required]
-        [Column("account", TypeName = "varchar(50)")]
-        public string Account { get; set; }
+        [Column("number", TypeName = "varchar(50)")]
+        public string Number { get; set; }
 
         /// <summary>
-        /// 密碼
-        /// </summary>
-        [Required]
-        [Column("pwd", TypeName = "varchar(50)")]
-        public string Pwd { get; set; }
-
-        /// <summary>
-        /// 使用者名稱
+        /// 料號名稱
         /// </summary>
         [Required]
         [Column("name", TypeName = "varchar(50)")]
