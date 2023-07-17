@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using multiple_tenant_solution.Context;
@@ -11,9 +12,11 @@ using multiple_tenant_solution.Context;
 namespace multiple_tenant_solution.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230714091441_create_default_user")]
+    partial class create_default_user
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,7 +140,7 @@ namespace multiple_tenant_solution.Migrations
                             Id = 1L,
                             ConnectionPwd = "admin",
                             ConnectionUserId = "admin",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1388),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7020),
                             CreateUser = "admin",
                             IsEnable = false,
                             Name = "管理員",
@@ -149,7 +152,7 @@ namespace multiple_tenant_solution.Migrations
                             Id = 2L,
                             ConnectionPwd = "CompanyA",
                             ConnectionUserId = "CompanyA",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1391),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7025),
                             CreateUser = "admin",
                             IsEnable = false,
                             Name = "A公司",
@@ -161,7 +164,7 @@ namespace multiple_tenant_solution.Migrations
                             Id = 3L,
                             ConnectionPwd = "CompanyB",
                             ConnectionUserId = "CompanyB",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1392),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7026),
                             CreateUser = "admin",
                             IsEnable = false,
                             Name = "B公司",
@@ -228,7 +231,7 @@ namespace multiple_tenant_solution.Migrations
                         {
                             Id = 1L,
                             Account = "admin",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1411),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7049),
                             CreateUser = "admin",
                             Name = "系統管理員",
                             Pwd = "admin",
@@ -239,7 +242,7 @@ namespace multiple_tenant_solution.Migrations
                         {
                             Id = 2L,
                             Account = "A-user",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1413),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7053),
                             CreateUser = "admin",
                             Name = "A的一般使用者",
                             Pwd = "A-user",
@@ -250,7 +253,7 @@ namespace multiple_tenant_solution.Migrations
                         {
                             Id = 3L,
                             Account = "B-user",
-                            CreateDate = new DateTime(2023, 7, 17, 2, 8, 8, 856, DateTimeKind.Utc).AddTicks(1414),
+                            CreateDate = new DateTime(2023, 7, 14, 9, 14, 41, 78, DateTimeKind.Utc).AddTicks(7054),
                             CreateUser = "admin",
                             Name = "B的一般使用者",
                             Pwd = "B-user",

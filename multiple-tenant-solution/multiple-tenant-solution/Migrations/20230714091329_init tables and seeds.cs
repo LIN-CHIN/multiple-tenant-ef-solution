@@ -89,9 +89,9 @@ namespace multiple_tenant_solution.Migrations
                 columns: new[] { "id", "connection_pwd", "connection_user_id", "create_date", "create_user", "name", "number", "update_date", "update_user" },
                 values: new object[,]
                 {
-                    { 1L, "Admin", "Admin", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8221), "admin", "管理員", "Admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 2L, "CompanyA", "CompanyA", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8225), "admin", "A公司", "CompanyA", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 3L, "CompanyB", "CompanyB", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8227), "admin", "B公司", "CompanyB", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 1L, "admin", "admin", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6795), "admin", "管理員", "admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 2L, "CompanyA", "CompanyA", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6799), "admin", "A公司", "CompanyA", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 3L, "CompanyB", "CompanyB", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6800), "admin", "B公司", "CompanyB", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -100,9 +100,9 @@ namespace multiple_tenant_solution.Migrations
                 columns: new[] { "id", "account", "create_date", "create_user", "name", "pwd", "tenant_number", "update_date", "update_user" },
                 values: new object[,]
                 {
-                    { 1L, "admin", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8260), "admin", "系統管理員", "admin", "Admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 2L, "A-user", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8262), "admin", "A的一般使用者", "A-user", "CompanyA", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 3L, "B-user", new DateTime(2023, 7, 14, 7, 45, 37, 136, DateTimeKind.Utc).AddTicks(8300), "admin", "B的一般使用者", "B-user", "CompanyB", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 1L, "admin", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6856), "admin", "系統管理員", "admin", "admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 2L, "A-user", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6858), "admin", "A的一般使用者", "A-user", "CompanyA", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 3L, "B-user", new DateTime(2023, 7, 14, 9, 13, 29, 848, DateTimeKind.Utc).AddTicks(6859), "admin", "B的一般使用者", "B-user", "CompanyB", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.CreateIndex(

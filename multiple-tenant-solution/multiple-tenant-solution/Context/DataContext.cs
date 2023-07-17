@@ -58,10 +58,10 @@ namespace multiple_tenant_solution.Context
                 new Tenants
                 {
                     Id = 1,
-                    Number = "Admin",
+                    Number = "admin",
                     Name = "管理員",
-                    ConnectionUserId = "Admin",
-                    ConnectionPwd = "Admin",
+                    ConnectionUserId = "admin",
+                    ConnectionPwd = "admin",
                     CreateDate = DateTime.UtcNow,
                     CreateUser = "admin",
                 },
@@ -98,7 +98,7 @@ namespace multiple_tenant_solution.Context
                     Account = "admin",
                     Pwd = "admin",
                     Name = "系統管理員",
-                    TenantNumber = "Admin",
+                    TenantNumber = "admin",
                     CreateDate = DateTime.UtcNow,
                     CreateUser = "admin",
                 },
