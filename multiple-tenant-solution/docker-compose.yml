@@ -5,15 +5,19 @@ services:
     container_name: multiple-tenant-solution-server
     hostname: multiple-tenant-solution-server
     restart: always
+    environment:
+      - ApiSettings__RootConnectionString=$ROOT_CONNECTION_STRING
+      - ApiSettings__ConnectionString=$CONNECTION_STRING
     build: 
       context: .
       dockerfile: ./multiple-tenant-solution/Dockerfile
     ports: 
-      - '6666:6666'
+      - '8000:80'
     depends_on:
       - db
   db:
     container_name: db
+    hostname: db
     image: postgres:14.1-alpine
     restart: always
     environment:
@@ -24,5 +28,29 @@ services:
         - '5432:5432'
     volumes:
         - ~/.docker-volumns/multiple-tenant-solution-db:/var/lib/postgresql/data
-
-        
+  multiple-tenant-storage-server:
+    container_name: multiple-tenant-storage-server
+    hostname: multiple-tenant-storage-server
+    restart: always
+    environment:
+      - ApiSettings__ConnectionString=$TENANT_CONNECTION_STRING
+    build: 
+      context: .
+      dockerfile: ./multiple-tenant-storage/Dockerfile
+    ports: 
+      - '8888:80'
+    depends_on:
+      - tenant-db
+  tenant-db:
+    container_name: tenant-db
+    hostname: tenant-db
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+         - POSTGRES_USER=$TENANT_POSTGRES_USER
+         - POSTGRES_PASSWORD=$TENANT_POSTGRES_PASSWORD
+         - POSTGRES_DB=$TENANT_POSTGRES_DB
+    ports:
+        - '5435:5432'
+    volumes:
+        - ~/.docker-volumns/multiple-tenant-storage-db:/var/lib/postgresql/data

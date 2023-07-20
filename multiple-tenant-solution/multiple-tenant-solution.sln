@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multiple-tenant-solution", "multiple-tenant-solution\multiple-tenant-solution.csproj", "{99C597DD-4DFB-4FAD-84EB-E52E0DB8334A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "multiple-tenant-solution", "multiple-tenant-solution\multiple-tenant-solution.csproj", "{99C597DD-4DFB-4FAD-84EB-E52E0DB8334A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multiple-tenant-storage", "multiple-tenant-storage\multiple-tenant-storage.csproj", "{4BB8C514-0C6C-4D2C-8D2D-C86CDA6CF649}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{99C597DD-4DFB-4FAD-84EB-E52E0DB8334A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C597DD-4DFB-4FAD-84EB-E52E0DB8334A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C597DD-4DFB-4FAD-84EB-E52E0DB8334A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB8C514-0C6C-4D2C-8D2D-C86CDA6CF649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB8C514-0C6C-4D2C-8D2D-C86CDA6CF649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB8C514-0C6C-4D2C-8D2D-C86CDA6CF649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB8C514-0C6C-4D2C-8D2D-C86CDA6CF649}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
