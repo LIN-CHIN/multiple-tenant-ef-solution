@@ -8,6 +8,7 @@ services:
     environment:
       - ApiSettings__RootConnectionString=$ROOT_CONNECTION_STRING
       - ApiSettings__ConnectionString=$CONNECTION_STRING
+      - TenantServiceConfigs__Host=$TENANT_SERVICE_HOST
     build: 
       context: .
       dockerfile: ./multiple-tenant-solution/Dockerfile
