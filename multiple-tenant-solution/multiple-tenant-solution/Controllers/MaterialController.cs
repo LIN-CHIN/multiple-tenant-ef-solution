@@ -53,7 +53,7 @@ namespace multiple_tenant_solution.Controllers
         public IActionResult UpdateMaterial(UpdateMaterialDTO updateDTO)
         {
             _materialService.Update(updateDTO);
-            return Ok(ApiResponse<object>.GetResult(null));
+            return Ok(ApiResponse<string>.GetResult(""));
         }
     }
 }
