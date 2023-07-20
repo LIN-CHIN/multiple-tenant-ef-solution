@@ -8,7 +8,7 @@ The project emphasizes implementing multi-tenancy functionality using PostgreSQL
 
 ## Deploy:
 1. Open terminal `cmd`
-2. Change director to project  
+2. Change directory to project  
 ```bash
 $cd ../multiple-tenant-ef-solutionmultiple-tenant-solution
 ```
