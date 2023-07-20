@@ -9,47 +9,55 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var apiSettings = builder.Configuration.GetSection("ApiSettings")
-    .Get<ApiSettings>(c => c.BindNonPublicProperties = true);
-
-// inject services 
-builder.Services.AddSingleton(apiSettings);
-builder.Services.AddDbContext<TenantContext>(
-    opt => opt.UseNpgsql(
-        apiSettings.ConnectionString,
-        dbContext => dbContext.MigrationsHistoryTable( 
-            HistoryRepository.DefaultTableName,
-                    "app_tenant_schema")));
-
-builder.Services.AddScoped<ITenantService, TenantService>();
-builder.Services.AddScoped<ITenantDAO, TenantDAO>();
-
-var app = builder.Build();
-
-//db migrate
-using (var scope = app.Services.CreateScope())
+try
 {
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<TenantContext>();
-    context.Database.Migrate();
-}
+    builder.Services.AddControllers();
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+    var apiSettings = builder.Configuration.GetSection("ApiSettings")
+        .Get<ApiSettings>(c => c.BindNonPublicProperties = true);
+
+    // inject services 
+    builder.Services.AddSingleton(apiSettings);
+    builder.Services.AddDbContext<TenantContext>(
+        opt => opt.UseNpgsql(
+            apiSettings.ConnectionString,
+            dbContext => dbContext.MigrationsHistoryTable(
+                HistoryRepository.DefaultTableName,
+                        "app_tenant_schema")));
+
+    builder.Services.AddScoped<ITenantService, TenantService>();
+    builder.Services.AddScoped<ITenantDAO, TenantDAO>();
+
+    var app = builder.Build();
+
+    //db migrate
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<TenantContext>();
+        context.Database.Migrate();
+    }
+
+    // Configure the HTTP request pipeline.
+    //if (app.Environment.IsDevelopment())
+    //{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+    //}
 
-//app.UseHttpsRedirection();
+    //app.UseHttpsRedirection();
 
-app.UseAuthorization();
+    app.UseAuthorization();
 
-app.MapControllers();
+    app.MapControllers();
 
-app.Run();
+    app.Run();
+}
+catch (Exception ex) 
+{
+    Console.WriteLine(ex.ToString());
+    throw ex;
+}
