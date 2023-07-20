@@ -43,16 +43,15 @@ namespace multiple_tenant_solution.Services.Material
         }
 
         ///<inheritdoc/>
-        public void Update(UpdateMaterialDTO updateDTO)
+        public void Update(long id, UpdateMaterialDTO updateDTO)
         {
-            Materials? materials = _materialDAO.GetById(updateDTO.Id);
+            Materials? materials = _materialDAO.GetById(id);
 
             if(materials == null) 
             {
                 throw new ArgumentException("找不到物料id");
             }
 
-            materials.Id = updateDTO.Id;
             materials.Name = updateDTO.Name;
             materials.UpdateDate = DateTime.UtcNow;
             materials.UpdateUser = _currentUserInfo.Account;

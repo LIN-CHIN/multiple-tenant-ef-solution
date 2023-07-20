@@ -16,7 +16,7 @@ namespace multiple_tenant_solution.Controllers
     {
         private readonly IMaterialService _materialService;
 
-        public MaterialController(IMaterialService materialService) 
+        public MaterialController(IMaterialService materialService)
         {
             _materialService = materialService;
         }
@@ -38,10 +38,10 @@ namespace multiple_tenant_solution.Controllers
         /// <param name="insertDTO">要新增的物料 DTO</param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult InsertMaterial(InsertMaterialDTO insertDTO) 
+        public IActionResult InsertMaterial(InsertMaterialDTO insertDTO)
         {
             return Ok(ApiResponse<Materials>
-                .GetResult( _materialService.Insert(insertDTO)));
+                .GetResult(_materialService.Insert(insertDTO)));
         }
 
         /// <summary>
@@ -49,10 +49,10 @@ namespace multiple_tenant_solution.Controllers
         /// </summary>
         /// <param name="insertDTO">要更新的物料 DTO</param>
         /// <returns></returns>
-        [HttpPut]
-        public IActionResult UpdateMaterial(UpdateMaterialDTO updateDTO)
+        [HttpPut("{id}")]
+        public IActionResult UpdateMaterial(long id, UpdateMaterialDTO updateDTO)
         {
-            _materialService.Update(updateDTO);
+            _materialService.Update(id, updateDTO);
             return Ok(ApiResponse<string>.GetResult(""));
         }
     }

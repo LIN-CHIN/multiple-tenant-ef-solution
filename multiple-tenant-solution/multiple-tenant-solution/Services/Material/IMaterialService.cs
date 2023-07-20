@@ -24,8 +24,9 @@ namespace multiple_tenant_solution.Services.Material
         /// <summary>
         /// 新增物料
         /// </summary>
+        /// <param name="id">要更新的物料ID</param>
         /// <param name="updateDTO">要更新的物料資訊</param>
         /// <returns></returns>
-        void Update(UpdateMaterialDTO updateDTO);
+        void Update(long id, UpdateMaterialDTO updateDTO);
     }
 }
