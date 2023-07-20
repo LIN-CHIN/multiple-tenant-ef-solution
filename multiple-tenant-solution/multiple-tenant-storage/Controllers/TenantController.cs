@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using multiple_tenant_storage.Entities;
+using multiple_tenant_storage.Responses;
 using multiple_tenant_storage.Services;
 
 namespace multiple_tenant_storage.Controllers
@@ -24,7 +26,7 @@ namespace multiple_tenant_storage.Controllers
         [HttpGet("{tenantNumber}")]
         public IActionResult GetByNumber(string tenantNumber) 
         {
-            return Ok(_tenantService.GetByNumber(tenantNumber));
+            return Ok(ApiResponse<Tenants?>.GetResult( _tenantService.GetByNumber(tenantNumber) ));
         }
     }
 }
