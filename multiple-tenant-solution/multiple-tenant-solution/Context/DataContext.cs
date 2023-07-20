@@ -1,22 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.VisualBasic;
 using multiple_tenant_solution.Entities;
-using System.Security.Principal;
-using System.Xml.Linq;
 
 namespace multiple_tenant_solution.Context
 {
     public class DataContext : DbContext
     {
         private readonly ApiSettings _apiSettings;
-        DbSet<Users> Users => Set<Users>();
-        DbSet<Tenants> Tenants => Set<Tenants>();
-        DbSet<Materials> Materials => Set<Materials>();
+        private readonly CurrentUserInfo _currentUserInfo;
 
-        public DataContext(DbContextOptions<DataContext> options, ApiSettings apiSettings) : base(options)
+        public DbSet<Users> Users => Set<Users>();
+        public DbSet<Materials> Materials => Set<Materials>();
+
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+        public DataContext(
+            DbContextOptions<DataContext> options,
+            ApiSettings apiSettings,
+            CurrentUserInfo currentUserInfo) : base(options)
         {
             _apiSettings = apiSettings;
+            _currentUserInfo = currentUserInfo;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,64 +32,42 @@ namespace multiple_tenant_solution.Context
                 .HasIndex(c => new { c.Account, c.TenantNumber })
                 .IsUnique();
 
-            modelBuilder.Entity<Tenants>()
-                .HasIndex(c => new { c.Number })
-                .IsUnique();
-
             modelBuilder.Entity<Materials>()
                 .HasIndex(c => new { c.Number, c.TenantNumber })
                 .IsUnique();
 
-            //設定預設值
-            modelBuilder.Entity<Tenants>()
-                .Property(t => t.IsEnable)
-                .HasDefaultValue(true);
-
-            modelBuilder.Entity<Tenants>().HasData(AddTenantsSeed());
             modelBuilder.Entity<Users>().HasData(AddUserSeed());
 
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_apiSettings.ConnectionString);
-        }
+            string connectionString = "";
 
-        private IEnumerable<Tenants> AddTenantsSeed()
-        {
-            return new List<Tenants>
+            if (_apiSettings.isRoot)
             {
-                new Tenants
+                connectionString = _apiSettings.RootConnectionString;
+                _apiSettings.isRoot = false;
+            }
+            else 
+            {
+                connectionString = string.Format(
+                    _apiSettings.ConnectionString,
+                    _currentUserInfo.ConnectionUserId,
+                    _currentUserInfo.ConnectionPwd);
+
+                if (string.IsNullOrWhiteSpace(_currentUserInfo.ConnectionUserId) ||
+                   string.IsNullOrWhiteSpace(_currentUserInfo.ConnectionPwd)) 
                 {
-                    Id = 1,
-                    Number = "admin",
-                    Name = "管理員",
-                    ConnectionUserId = "admin",
-                    ConnectionPwd = "admin",
-                    CreateDate = DateTime.UtcNow,
-                    CreateUser = "admin",
-                },
-                new Tenants
-                {
-                    Id = 2,
-                    Number = "CompanyA",
-                    Name = "A公司",
-                    ConnectionUserId = "CompanyA",
-                    ConnectionPwd = "CompanyA",
-                    CreateDate = DateTime.UtcNow,
-                    CreateUser = "admin",
-                },
-                new Tenants
-                {
-                    Id = 3,
-                    Number = "CompanyB",
-                    Name = "B公司",
-                    ConnectionUserId = "CompanyB",
-                    ConnectionPwd = "CompanyB",
-                    CreateDate = DateTime.UtcNow,
-                    CreateUser = "admin",
+                    throw new Exception("連線資訊錯誤 系統異常");
                 }
-           };
+
+            }
+
+            optionsBuilder.UseNpgsql(connectionString, dbContext =>
+                dbContext.MigrationsHistoryTable(
+                    HistoryRepository.DefaultTableName,
+                    "app_main_schema"));
         }
 
         private IEnumerable<Users> AddUserSeed() 
