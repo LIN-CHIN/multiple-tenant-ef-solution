@@ -22,7 +22,7 @@ namespace multiple_tenant_solution.Services.Material
         Materials Insert(InsertMaterialDTO insertDTO);
 
         /// <summary>
-        /// 新增物料
+        /// 更新物料
         /// </summary>
         /// <param name="id">要更新的物料ID</param>
         /// <param name="updateDTO">要更新的物料資訊</param>
