@@ -55,5 +55,16 @@ namespace multiple_tenant_solution.Controllers
             _materialService.Update(id, updateDTO);
             return Ok(ApiResponse<string>.GetResult(""));
         }
+
+        /// <summary>
+        /// 刪除物料
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMaterial(long id)
+        {
+            _materialService.Delete(id);
+            return Ok(ApiResponse<string>.GetResult(""));
+        }
     }
 }

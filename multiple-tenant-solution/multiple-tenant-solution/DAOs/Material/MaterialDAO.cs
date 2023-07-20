@@ -51,5 +51,12 @@ namespace multiple_tenant_solution.DAOs.Material
             _dataContext.Update(material);
             _dataContext.SaveChanges();
         }
+
+        ///<inheritdoc/>
+        public void Delete(Materials material)
+        {
+            _dataContext.Remove(material);
+            _dataContext.SaveChanges();
+        }
     }
 }

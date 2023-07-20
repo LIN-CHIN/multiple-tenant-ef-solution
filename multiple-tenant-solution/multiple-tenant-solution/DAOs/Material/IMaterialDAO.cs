@@ -42,5 +42,12 @@ namespace multiple_tenant_solution.DAOs.Material
         /// <returns></returns>
         void Update(Materials material);
 
+        /// <summary>
+        /// 刪除物料
+        /// </summary>
+        /// <param name="material">要刪除的物料實體</param>
+        /// <returns></returns>
+        void Delete(Materials material);
+
     }
 }

@@ -58,5 +58,18 @@ namespace multiple_tenant_solution.Services.Material
 
             _materialDAO.Update(materials);
         }
+
+        ///<inheritdoc/>
+        public void Delete(long id)
+        {
+            Materials? materials = _materialDAO.GetById(id);
+
+            if (materials == null)
+            {
+                throw new ArgumentException("找不到物料id");
+            }
+
+            _materialDAO.Delete(materials);
+        }
     }
 }
