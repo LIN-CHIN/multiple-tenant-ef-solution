@@ -23,5 +23,21 @@ namespace multiple_tenant_solution.DAOs.User
                             u.TenantNumber == tenantNumber)
                 .SingleOrDefault();
         }
+
+        ///<inheritdoc/>
+        public Users? GetByAccount(string account)
+        {
+            return _dataContext.Users
+                .Where(u => u.Account == account)
+                .SingleOrDefault();
+        }
+
+        ///<inheritdoc/>
+        public Users Insert(Users user)
+        {
+            _dataContext.Users.Add(user);
+            _dataContext.SaveChanges();
+            return user;
+        }
     }
 }
