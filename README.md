@@ -1,6 +1,5 @@
 # multiple-tenant-ef-solution
-
-The project emphasizes implementing multi-tenancy functionality using PostgreSQL RLS and Entity Framework.
+This project mainly focuses on implementing a multi-tenancy solution using PostgreSQL RLS and Entity Framework, rather than concentrating on error handling, API responses, or other details.
 
 ## Notice:
 1. Ensure that there are no services occupying ports `5432`, `5435`, `8000`, and `8888` on the local machine.
