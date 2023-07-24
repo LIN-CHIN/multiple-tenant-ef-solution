@@ -1,4 +1,5 @@
-﻿using multiple_tenant_storage.Entities;
+﻿using multiple_tenant_storage.DTOs;
+using multiple_tenant_storage.Entities;
 
 namespace multiple_tenant_storage.DAOs
 {
@@ -13,5 +14,12 @@ namespace multiple_tenant_storage.DAOs
         /// <param name="tenantNumber">租戶代碼</param>
         /// <returns></returns>
         Tenants? GetByNumber(string tenantNumber);
+
+        /// <summary>
+        /// 新增租戶
+        /// </summary>
+        /// <param name="tenant">要新增的租戶實體</param>
+        /// <returns></returns>
+        Tenants Insert(Tenants tenant);
     }
 }

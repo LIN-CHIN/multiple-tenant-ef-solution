@@ -1,4 +1,5 @@
-﻿using multiple_tenant_storage.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using multiple_tenant_storage.Context;
 using multiple_tenant_storage.Entities;
 
 namespace multiple_tenant_storage.DAOs
@@ -21,6 +22,14 @@ namespace multiple_tenant_storage.DAOs
             return _tenantContext.Tenants
                 .Where(t => t.Number == tenantNumber)
                 .SingleOrDefault();
+        }
+
+        ///<inheritdoc/>
+        public Tenants Insert(Tenants tenant)
+        {
+            _tenantContext.Tenants.Add(tenant);
+            _tenantContext.SaveChanges();
+            return tenant;
         }
     }
 }
