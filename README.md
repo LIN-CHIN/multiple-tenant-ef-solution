@@ -7,7 +7,7 @@ This project mainly focuses on implementing a multi-tenancy solution using Postg
 
 ## Deploy:
 1. Open terminal `cmd`
-2. Switch to the directory where the project with docker-compose is located."
+2. Switch to the directory where the project with docker-compose is located.
 ```bash
 $cd .../multiple-tenant-ef-solution
 ```
