@@ -9,7 +9,7 @@ This project mainly focuses on implementing a multi-tenancy solution using Postg
 1. Open terminal `cmd`
 2. Change directory to project  
 ```bash
-$cd ../multiple-tenant-ef-solutionmultiple-tenant-solution
+$cd .../multiple-tenant-ef-solution
 ```
 3. Deployed `docker-compose`  
 
