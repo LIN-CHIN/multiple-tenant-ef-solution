@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "90dec24f-9a74-4431-9331-5ee4911abcf9",
+		"name": "Tenants",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CompanyA",
+			"item": [
+				{
+					"name": "Insert-Material",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"A001\",\r\n    \"name\": \"A-Company-A001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Material",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"A-Company-A001-Update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/Material/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Material",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/Material/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query-Material",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query-Material-User2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user-2",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyA",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "A-user",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"A-user-2\",\r\n  \"pwd\": \"A-user-2\",\r\n  \"name\": \"A-user-2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/User",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"User"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CompanyB",
+			"item": [
+				{
+					"name": "Insert-Material",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyB",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "B-user",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"A001\",\r\n    \"name\": \"B-Company-A001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Material",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyB",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "B-user",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"B-Company-A001-Update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/Material/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Material",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyB",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "B-user",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/Material/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query-Material",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "CompanyB",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "B-user",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Query-Material",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TenantNumber",
+								"value": "admin",
+								"type": "default"
+							},
+							{
+								"key": "Account",
+								"value": "admin",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/Material",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"Material"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
