@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-20T06:44:52.631Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="BAHbgVpXVOTnJMJkwA9G" version="22.1.11" type="device">
+<mxfile host="app.diagrams.net" modified="2023-12-20T06:53:25.980Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="XHNhpqJQMtiLz780Apl1" version="22.1.11" type="device">
   <diagram name="第 1 页" id="GDjELXkGRmo23KiVc8O1">
     <mxGraphModel dx="1226" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -44,7 +44,7 @@
           <mxGeometry x="100" y="134.65999999999997" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="PBOLzvun1pL5uSBel4q--14" value="tenant_id=&amp;nbsp;CustomerA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" vertex="1" parent="1">
-          <mxGeometry x="170" y="130" width="130" height="31" as="geometry" />
+          <mxGeometry x="170" y="128" width="130" height="31" as="geometry" />
         </mxCell>
         <mxCell id="PBOLzvun1pL5uSBel4q--19" value="Tenant" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" vertex="1" parent="1">
           <mxGeometry x="539" y="350" width="180" height="120" as="geometry" />
@@ -150,6 +150,9 @@
         </mxCell>
         <mxCell id="PBOLzvun1pL5uSBel4q--69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.01;entryY=0.499;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="PBOLzvun1pL5uSBel4q--35" target="PBOLzvun1pL5uSBel4q--61">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PBOLzvun1pL5uSBel4q--70" value="account info" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" vertex="1" parent="1">
+          <mxGeometry x="200" y="89" width="70" height="31" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
