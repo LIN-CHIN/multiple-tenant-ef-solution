@@ -47,7 +47,8 @@ namespace multiple_tenant_solution.Controllers
         /// <summary>
         /// 更新物料
         /// </summary>
-        /// <param name="insertDTO">要更新的物料 DTO</param>
+        /// <param name="id">要更新的物料id</param>
+        /// <param name="updateDTO">要更新的物料 DTO</param>
         /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult UpdateMaterial(long id, UpdateMaterialDTO updateDTO)
@@ -59,6 +60,7 @@ namespace multiple_tenant_solution.Controllers
         /// <summary>
         /// 刪除物料
         /// </summary>
+        /// <param name="id">要刪除的id</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteMaterial(long id)
