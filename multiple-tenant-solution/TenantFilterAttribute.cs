@@ -19,17 +19,14 @@ namespace multiple_tenant_solution
         private readonly CurrentUserInfo _currentUserInfo;
         private readonly ITenantExternalService _tenantExternalService;
         private readonly IUserService _userService;
-        private readonly ApiSettings _apiSettings;
         public TenantFilterAttribute(
             CurrentUserInfo currentUserInfo,
             ITenantExternalService tenantExternalService,
-            IUserService userService,
-            ApiSettings apiSettings)
+            IUserService userService)
         {
             _currentUserInfo = currentUserInfo;
             _tenantExternalService = tenantExternalService;
             _userService = userService;
-            _apiSettings = apiSettings; 
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
